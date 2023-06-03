@@ -118,13 +118,71 @@
     <div class="row row-cols-1 row-cols-md-3 g-4" id="linksContainer"><!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JavaScript -->
-    <script>
+<!--    <script>-->
+<!--    // Fetch data from API-->
+<!--    fetch('https://www.jarvisai.in/get_all_links')-->
+<!--      .then(response => response.json())-->
+<!--      .then(data => {-->
+<!--        if (data.status) {-->
+<!--          const links = data.msg;-->
+<!--          const linksContainer = document.getElementById('linksContainer');-->
+
+<!--          links.forEach(link => {-->
+<!--            const card = createLinkCard(link);-->
+<!--            linksContainer.appendChild(card);-->
+<!--          });-->
+<!--        }-->
+<!--      })-->
+<!--      .catch(error => console.error(error));-->
+
+<!--    // Create a link card-->
+<!--    function createLinkCard(link) {-->
+<!--      const [_, image, title, description, url, timestamp] = link;-->
+
+<!--      const card = document.createElement('div');-->
+<!--      card.classList.add('col');-->
+
+<!--      const innerCard = document.createElement('div');-->
+<!--      innerCard.classList.add('card');-->
+
+<!--      const img = document.createElement('img');-->
+<!--      img.classList.add('card-img-top');-->
+<!--      img.src = image;-->
+<!--      innerCard.appendChild(img);-->
+
+<!--      const cardBody = document.createElement('div');-->
+<!--      cardBody.classList.add('card-body');-->
+
+<!--      const cardTitle = document.createElement('h5');-->
+<!--      cardTitle.classList.add('card-title');-->
+<!--      cardTitle.textContent = title;-->
+<!--      cardBody.appendChild(cardTitle);-->
+
+<!--      const cardText = document.createElement('p');-->
+<!--      cardText.classList.add('card-text');-->
+<!--      cardText.textContent = description;-->
+<!--      cardBody.appendChild(cardText);-->
+
+<!--      const cardLink = document.createElement('a');-->
+<!--      cardLink.classList.add('card-link');-->
+<!--      cardLink.href = url;-->
+<!--      cardLink.textContent = 'Visit Website';-->
+<!--      cardBody.appendChild(cardLink);-->
+
+<!--      innerCard.appendChild(cardBody);-->
+<!--      card.appendChild(innerCard);-->
+
+<!--      return card;-->
+<!--    }-->
+
+<!--    </script>-->
+        <script>
     // Fetch data from API
     fetch('https://www.jarvisai.in/get_all_links')
       .then(response => response.json())
       .then(data => {
         if (data.status) {
-          const links = data.msg;
+          const links = data.msg.reverse(); // Reverse the array
           const linksContainer = document.getElementById('linksContainer');
 
           links.forEach(link => {
@@ -174,8 +232,8 @@
 
       return card;
     }
+</script>
 
-    </script>
 </div>
 </div>
 </body>
